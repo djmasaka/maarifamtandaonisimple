@@ -1,0 +1,12 @@
+[
+    {
+        "title": "book 1",
+        "image": "book1_cover.jpg",
+        "doc": "book1.txt"
+    },
+    {
+        "title": "book 2",
+        "image": "book2_cover.png",
+        "doc": "book2.txt"
+    }
+]

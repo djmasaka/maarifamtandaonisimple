@@ -1,0 +1,14 @@
+.card img {
+    width: 10vw;
+}
+
+.card {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+
+.grouping {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
