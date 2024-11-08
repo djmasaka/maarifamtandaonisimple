@@ -11,4 +11,30 @@
 .grouping {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+}
+
+.searchbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.searchbar input {
+    margin-bottom: 0;
+}
+
+button {
+    padding: 0 1em;
+}
+
+@media (max-width: 450px) {
+    .grouping {
+        grid-template-columns: 1fr;
+    }
+    .card img {
+        width: 30vw;
+    }
 }

@@ -39,8 +39,10 @@
 <body>
     <div class="container">
         <h1>Home Page</h1>
-        <input type="text" id="search" name="search"/>
-        <button onclick="trial()">try me</button>
+        <div class="searchbar">
+            <input type="text" id="search" name="search"/>
+            <button onclick="trial()">Search</button>
+        </div>
         <div class="grouping" id="cards">
             <?php
                 $jsonObj = file_get_contents("assets/allbooks.json");
@@ -53,17 +55,25 @@
             ?>
         </div>
     </div>
-	<script type="text/javascript">
-        const textBox = document.querySelector("#search");
-        let soup = 0;
-        textBox.addEventListener("keyup", (event) => {
-            soup ++;
-        })
-        function trial(event) {
-            console.log(event);
-            const cards = document.querySelector("#cards");
-            cards.
+    <script type="text/javascript">
+    const textBox = document.querySelector("#search");
+    textBox.addEventListener("keyup", function(event) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            trial();
         }
-	</script>
+    });
+    function trial() {
+        const cards = document.querySelector("#cards");
+        const textBox = document.querySelector("#search");
+        for (let i = 0; i < cards.children.length; i++) {
+            cards.children[i].style.display = "flex";
+            if (!cards.children[i].innerHTML.includes(textBox.value)) {
+                console.log(cards.children[i].getAttribute("key"));
+                cards.children[i].style.display = "none";
+            }
+        }
+    }
+    </script>
 </body>
 </html>
