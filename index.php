@@ -58,6 +58,9 @@
     <script type="text/javascript">
     const textBox = document.querySelector("#search");
     textBox.addEventListener("keyup", function(event) {
+        if (event.target.value === "") {
+            trial();
+        }
         if (event.keyCode === 13) {
             event.preventDefault();
             trial();
@@ -68,7 +71,7 @@
         const textBox = document.querySelector("#search");
         for (let i = 0; i < cards.children.length; i++) {
             cards.children[i].style.display = "flex";
-            if (!cards.children[i].innerHTML.includes(textBox.value)) {
+            if (!cards.children[i].innerHTML.toLowerCase().includes(textBox.value.toLowerCase())) {
                 console.log(cards.children[i].getAttribute("key"));
                 cards.children[i].style.display = "none";
             }
